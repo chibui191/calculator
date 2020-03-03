@@ -1,9 +1,9 @@
 const container = document.querySelector('#container');
 let display = document.querySelector('#display');
-let activeOperator;
+let currentAction = '';
 let firstNum;
 let secondNum;
-let previousKey;
+let previousKey = '';
 
 function calculate(n1, operator, n2) {
   if (operator == 'add') {
@@ -29,7 +29,7 @@ keys.forEach(key => key.addEventListener('click', e => {
   const keyContent = key.value;
   
   if (!action) {
-    if (display.textContent == '0' || previousKey == 'operationKey') {
+    if (display.textContent == '0' || previousKey == 'operationKey' || previousKey == 'calculateKey') {
       display.textContent = `${keyContent}`;
     }
     else {
@@ -39,21 +39,37 @@ keys.forEach(key => key.addEventListener('click', e => {
   }
 
   if (action === 'add' || action === 'subtract' || action === 'multiply' || action === 'divide') {
-    previousKey = 'operationKey';
-    activeOperator = action;
-    firstNum = display.textContent;
+    // if there's no active currentAction --> assign operation action to currentAction
+    // firstNum is the textContent of display
+    if (currentAction == '') {
+      previousKey = 'operationKey';
+      currentAction = action;
+      firstNum = display.textContent;
+    }
+    // if there's a current action, operationKey acts as 'calculate'
+    // secondNum is textContent of display
+    // reset previousKey & currentAction back to empty ''
+    else {
+      secondNum = display.textContent;
+      result = calculate(firstNum, currentAction, secondNum);
+      display.textContent = `${result}`;
+      previousKey = 'operationKey';
+      currentAction = action;
+      firstNum = result;
+    }
   }
 
   if (action === 'calculate') {
     secondNum = display.textContent;
-    result = calculate(firstNum, activeOperator, secondNum);
-    previousKey = '';
+    result = calculate(firstNum, currentAction, secondNum);
+    previousKey = 'calculateKey';
     display.textContent = `${result}`;
+    currentAction = '';
   }
 
   if (action === 'clearAll') {
     display.textContent = '0';
-    activeOperator = '';
+    currentAction = '';
   }
 }));
 
