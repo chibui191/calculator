@@ -1,0 +1,53 @@
+#inputDisplay {
+  background-color: yellow;
+  border: 1px solid black;
+  text-align: right;
+  width: 500px;
+}
+
+html {
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+}
+
+body {
+  position: relative;
+}
+
+#display {
+  text-align: right;
+  color: white;
+  height: 60px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+
+#container {
+  width: 350px;
+  height: 100%;
+  padding: 30px 10px;
+  position: relative;
+  margin: 0 auto;
+  background-color: #173f5f; 
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 40px;
+}
+
+button {
+  height: 70px;
+  width: 70px;
+  font-size: 16px;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 0;
+  outline: none;
+  background-color: #173f5f;
+  color: white;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #20639B;
+}

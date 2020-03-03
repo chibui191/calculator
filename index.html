@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="container">
+      <div id="display">0</div>
+
+      <div id="keys">
+        <!-- Operation Keys -->
+        <button value="+" class="operationKey"data-action="add">+</button>      
+        <button value="-" class="operationKey"data-action="subtract">-</button> 
+        <button value="x" class="operationKey" data-action="multiply">x</button> 
+        <button value="/" class="operationKey" data-action="divide">÷</button> 
+        <br/>
+
+        <!-- Number Keys -->
+        <button value="7" class="numKey">
+          7
+        </button>
+        <button value="8" class="numKey">
+          8
+        </button>
+        <button value="9" class="numKey">
+          9
+        </button>
+        <br/>
+
+        <button value="4" class="numKey">
+          4
+        </button>
+        <button value="5" class="numKey">
+          5
+        </button>
+        <button value="6" class="numKey">
+          6
+        </button>
+        <br/>
+
+        <button value="1" class="numKey">
+          1
+        </button>
+        <button value="2" class="numKey">
+          2
+        </button>
+        <button value="3" class="numKey">
+          3
+        </button>
+        <br/>
+
+        <button value="0" class="numKey">
+          0
+        </button>
+        <!-- Other Keys -->
+        <button value="AC" class="otherKey" id="btnAC" data-action="clearAll">AC</button>
+        <br/>
+
+        
+        
+        <!-- Result Key -->
+        <button id="btnResult" data-action="calculate">=</button>
+
+      </div>
+    </div>
+  </body>
+
+  <script src="script.js"></script>
+</html>
